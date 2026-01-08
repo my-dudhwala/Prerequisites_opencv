@@ -189,12 +189,107 @@
 <h1>Prerequisites: Installing OpenCV and MediaPipe 📦</h1>
 
     <h3>Prerequisites</h3>
-    <p>Before installing the libraries, make sure you have:</p>
+   
+    <h3>💻 Installing Visual Studio Code (VS Code)</h3>
+    <p><strong>VS Code</strong> is the recommended code editor for this course because it provides excellent Python support, integrated terminal, and debugging tools.</p>
+    
+    <h4>Installation Steps:</h4>
+    
+    <h4>Windows:</h4>
+    <ol>
+        <li>Go to <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+        <li>Click "Download for Windows"</li>
+        <li>Run the installer (.exe file)</li>
+        <li><strong>Important:</strong> During installation, check both:
+            <ul>
+                <li>✅ "Add to PATH" (recommended)</li>
+                <li>✅ "Create desktop icon" (optional but helpful)</li>
+            </ul>
+        </li>
+        <li>Launch VS Code after installation</li>
+    </ol>
+    
+    <h4>macOS:</h4>
+    <ol>
+        <li>Go to <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+        <li>Download for macOS</li>
+        <li>Open the downloaded .zip file</li>
+        <li>Drag "Visual Studio Code.app" to your Applications folder</li>
+        <li>Launch VS Code from Applications</li>
+    </ol>
+    
+    <h4>Linux (Ubuntu/Debian):</h4>
+    <pre><code>bash
+# Update package list
+sudo apt update
+
+# Install VS Code
+sudo apt install code
+
+# Alternative: Using snap
+sudo snap install code --classic
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    
+    <h4>Linux (Other distributions):</h4>
+    <ol>
+        <li>Go to <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+        <li>Download the .deb (Ubuntu/Debian) or .rpm (Red Hat/Fedora) package</li>
+        <li>Install using your package manager:
+            <ul>
+                <li>Ubuntu/Debian: <code>sudo dpkg -i code_*.deb</code></li>
+                <li>Red Hat/Fedora: <code>sudo rpm -i code-*.rpm</code></li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h4>Install Python Extension in VS Code:</h4>
+    <ol>
+        <li>Open VS Code</li>
+        <li>Click the Extensions icon on the left sidebar (or press <code>Ctrl+Shift+X</code>)</li>
+        <li>Search for "Python"</li>
+        <li>Install the extension by Microsoft (first result)</li>
+        <li>Wait for installation to complete</li>
+    </ol>
+    
+    <p><strong>The Python extension provides:</strong></p>
     <ul>
-        <li>✅ Python 3.12 installed</li>
-        <li>✅ Virtual environment created and activated</li>
-        <li>✅ VS Code open with your project folder</li>
+        <li>Syntax highlighting and IntelliSense</li>
+        <li>Code completion and debugging</li>
+        <li>Integrated terminal support</li>
+        <li>Jupyter Notebook support</li>
     </ul>
+    <hr>
+
+
+    <h3>📥 Installing Python 3.12</h3>
+    <p>To download Python 3.12, visit the official Python website and follow the installation instructions for your operating system.</p>
+    
+    <h4>Steps to Download and Install Python 3.12</h4>
+    <ol>
+        <li><strong>Go to the official website:</strong> Open your web browser and navigate to the <a href="https://www.python.org/downloads/">Python Downloads page</a>.</li>
+        <li><strong>Select your OS:</strong> The website often automatically detects your operating system (Windows, macOS, or Linux) and offers the appropriate download. If not, you can manually select your OS tab.</li>
+        <li><strong>Download the installer:</strong> Click the button with the latest Python 3.12 version number (e.g., Python 3.12.x) to download the installer file.
+            <ul>
+                <li><strong>For Windows/macOS:</strong> This will typically be an executable (.exe) file for Windows or a disk image (.pkg or universal2) for macOS.</li>
+                <li><strong>For Linux:</strong> You can download the source code, or more commonly, use your operating system's package manager with specific commands (e.g., on Ubuntu, you might need to add a repository and install via apt).</li>
+            </ul>
+        </li>
+        <li><strong>Run the installer:</strong>
+            <ul>
+                <li><strong>Windows:</strong> Open the downloaded .exe file. Crucially, in the first screen of the installation wizard, ensure you check the box that says "Add python.exe to PATH" to ensure the python command is recognized in your command prompt. You may also want to select "Install for all users" and choose "Customize installation" to review optional features like pip and IDLE, which are recommended.</li>
+                <li><strong>macOS:</strong> Open the downloaded package file and follow the prompts in the installer.</li>
+            </ul>
+        </li>
+        <li><strong>Verify the installation:</strong> After the installation is complete, open your terminal or Command Prompt and type the following command to confirm the installed version:</li>
+    </ol>
+    
+    <pre><code>
+python --version
+# or sometimes
+python3 --version
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    
+    <p>This should display the installed version, such as <code>Python 3.12.x</code>.</p>
     <hr>
 
     <h3>Step 1: Create Virtual Environment (If Not Already Created)</h3>
