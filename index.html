@@ -200,7 +200,7 @@
     <h3>Step 1: Create Virtual Environment (If Not Already Created)</h3>
 
     <h4>Windows PowerShell:</h4>
-    <pre><code>powershell
+    <pre><code>
 # Navigate to your project folder
 cd C:\Users\teamp\Downloads\testtt
 
@@ -212,7 +212,7 @@ python -m venv .venv
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
 
     <h4>macOS/Linux:</h4>
-    <pre><code>bash
+    <pre><code>
 # Navigate to your project folder
 cd ~/Projects/testtt
 
@@ -234,7 +234,7 @@ source .venv/bin/activate
         <li>Displaying images in windows</li>
     </ul>
     <p><strong>Install Command:</strong></p>
-    <pre><code>bash
+    <pre><code>
 pip install opencv-python
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p><strong>Expected output:</strong></p>
@@ -245,7 +245,7 @@ Installing collected packages: numpy, opencv-python
 Successfully installed opencv-python-4.x.x.x numpy-1.x.x
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p><strong>Verify installation:</strong></p>
-    <pre><code>bash
+    <pre><code>
 python -c "import cv2; print(cv2.__version__)"
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p>Should print something like: <code>4.8.1</code> (version number)</p>
@@ -260,7 +260,7 @@ python -c "import cv2; print(cv2.__version__)"
         <li>Easy-to-use Python API</li>
     </ul>
     <p><strong>Install Command:</strong></p>
-    <pre><code>bash
+    <pre><code>
 pip install mediapipe
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p><strong>Expected output:</strong></p>
@@ -271,7 +271,7 @@ Installing collected packages: mediapipe
 Successfully installed mediapipe-0.x.x
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p><strong>Verify installation:</strong></p>
-    <pre><code>bash
+    <pre><code>
 python -c "import mediapipe as mp; print(mp.__version__)"
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p>Should print something like: <code>0.10.9</code> (version number)</p>
@@ -285,7 +285,7 @@ opencv-python>=4.8.0
 mediapipe>=0.10.0
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p><strong>Install from requirements.txt:</strong></p>
-    <pre><code>bash
+    <pre><code>
 pip install -r requirements.txt
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p>This will install both packages at once.</p>
@@ -293,7 +293,7 @@ pip install -r requirements.txt
 
     <h3>Step 5: Verify Everything is Installed</h3>
     <p>Run this quick test in your terminal:</p>
-    <pre><code>bash
+    <pre><code>
 python -c "import cv2; import mediapipe as mp; print('✅ OpenCV version:', cv2.__version__); print('✅ MediaPipe version:', mp.__version__); print('All packages installed successfully!')"
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
     <p><strong>Expected output:</strong></p>
@@ -315,7 +315,7 @@ All packages installed successfully!
 
     <h4>Issue: "Permission denied" (Windows)</h4>
     <p><strong>Solution:</strong></p>
-    <pre><code>powershell
+    <pre><code>
 # Run PowerShell as Administrator, or
 # Add --user flag
 pip install --user opencv-python mediapipe
@@ -336,14 +336,14 @@ pip install --user opencv-python mediapipe
         <li>Check your internet connection</li>
         <li>Try using a faster pip mirror (optional):</li>
     </ol>
-    <pre><code>bash
+    <pre><code>
 pip install --upgrade pip
 pip install opencv-python mediapipe --no-cache-dir
 </code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
 
     <h4>Issue: Wrong Python version</h4>
     <p><strong>Solution:</strong></p>
-    <pre><code>bash
+    <pre><code>
 # Check Python version (should be 3.12+)
 python --version
 
