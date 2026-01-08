@@ -1,0 +1,404 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Vision Learning Module</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 80px;
+            text-align: center;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: left;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 2px solid #61dafb;
+            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #61dafb;
+        }
+        h4 {
+            font-size: 1.2em;
+            color: #98c379;
+        }
+        p, li {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        ul, ol {
+            margin-left: 20px;
+            text-align: left;
+        }
+        code {
+            background-color: #1a1a1a;
+            color: #e06c75;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #1a1a1a;
+            color: #d19a66;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            position: relative;
+            overflow-x: auto;
+            margin: 20px 0;
+            text-align: left;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #555;
+        }
+        pre.no-copy .copy-btn {
+            display: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: left;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #61dafb;
+        }
+        tr:nth-child(even) {
+            background-color: #111;
+        }
+        blockquote {
+            border-left: 4px solid #e06c75;
+            padding-left: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            text-align: left;
+        }
+        details {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        summary {
+            color: #98c379;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        summary:hover {
+            color: #61dafb;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            margin: 5px 0;
+        }
+        .checklist li:before {
+            content: "☐ ";
+            color: #e06c75;
+        }
+        .quiz {
+            background-color: #1a1a1a;
+            border: 2px solid #61dafb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .quiz h4 {
+            color: #61dafb;
+            margin-top: 0;
+        }
+        .assignment {
+            background-color: #1a1a1a;
+            border: 2px solid #e06c75;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .assignment h4 {
+            color: #e06c75;
+            margin-top: 0;
+        }
+        .tip {
+            background-color: #1a1a1a;
+            border-left: 4px solid #98c379;
+            padding: 10px 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .note {
+            background-color: #1a1a1a;
+            border-left: 4px solid #d19a66;
+            padding: 10px 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        a {
+            color: #61dafb;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Prerequisites: Installing OpenCV and MediaPipe 📦</h1>
+
+    <h3>Prerequisites</h3>
+    <p>Before installing the libraries, make sure you have:</p>
+    <ul>
+        <li>✅ Python 3.12 installed</li>
+        <li>✅ Virtual environment created and activated</li>
+        <li>✅ VS Code open with your project folder</li>
+    </ul>
+    <hr>
+
+    <h3>Step 1: Create Virtual Environment (If Not Already Created)</h3>
+
+    <h4>Windows PowerShell:</h4>
+    <pre><code>powershell
+# Navigate to your project folder
+cd C:\Users\teamp\Downloads\testtt
+
+# Create virtual environment
+python -m venv .venv
+
+# Activate it
+.\.venv\Scripts\activate
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+
+    <h4>macOS/Linux:</h4>
+    <pre><code>bash
+# Navigate to your project folder
+cd ~/Projects/testtt
+
+# Create virtual environment
+python3 -m venv .venv
+
+# Activate it
+source .venv/bin/activate
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p><strong>You should see <code>(.venv)</code> at the beginning of your terminal prompt when activated.</strong></p>
+    <hr>
+
+    <h3>Step 2: Install OpenCV</h3>
+    <p><strong>OpenCV</strong> (Open Source Computer Vision Library) is used for:</p>
+    <ul>
+        <li>Reading images and video from camera</li>
+        <li>Image processing (resizing, color conversion)</li>
+        <li>Drawing shapes and text on images</li>
+        <li>Displaying images in windows</li>
+    </ul>
+    <p><strong>Install Command:</strong></p>
+    <pre><code>bash
+pip install opencv-python
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p><strong>Expected output:</strong></p>
+    <pre><code>
+Collecting opencv-python
+  Downloading opencv_python-4.x.x.x-cp312-cp312-win_amd64.whl
+Installing collected packages: numpy, opencv-python
+Successfully installed opencv-python-4.x.x.x numpy-1.x.x
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p><strong>Verify installation:</strong></p>
+    <pre><code>bash
+python -c "import cv2; print(cv2.__version__)"
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p>Should print something like: <code>4.8.1</code> (version number)</p>
+    <hr>
+
+    <h3>Step 3: Install MediaPipe</h3>
+    <p><strong>MediaPipe</strong> is Google's machine learning framework that provides:</p>
+    <ul>
+        <li>Pre-trained models for hand detection</li>
+        <li>Pose detection and face detection</li>
+        <li>Real-time processing capabilities</li>
+        <li>Easy-to-use Python API</li>
+    </ul>
+    <p><strong>Install Command:</strong></p>
+    <pre><code>bash
+pip install mediapipe
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p><strong>Expected output:</strong></p>
+    <pre><code>
+Collecting mediapipe
+  Downloading mediapipe-0.x.x-cp312-cp312-win_amd64.whl
+Installing collected packages: mediapipe
+Successfully installed mediapipe-0.x.x
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p><strong>Verify installation:</strong></p>
+    <pre><code>bash
+python -c "import mediapipe as mp; print(mp.__version__)"
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p>Should print something like: <code>0.10.9</code> (version number)</p>
+    <hr>
+
+    <h3>Step 4: Install All Dependencies at Once (Alternative Method)</h3>
+    <p>If you prefer, you can create a <code>requirements.txt</code> file with all dependencies:</p>
+    <p><strong>Create <code>requirements.txt</code>:</strong></p>
+    <pre><code>txt
+opencv-python>=4.8.0
+mediapipe>=0.10.0
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p><strong>Install from requirements.txt:</strong></p>
+    <pre><code>bash
+pip install -r requirements.txt
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p>This will install both packages at once.</p>
+    <hr>
+
+    <h3>Step 5: Verify Everything is Installed</h3>
+    <p>Run this quick test in your terminal:</p>
+    <pre><code>bash
+python -c "import cv2; import mediapipe as mp; print('✅ OpenCV version:', cv2.__version__); print('✅ MediaPipe version:', mp.__version__); print('All packages installed successfully!')"
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <p><strong>Expected output:</strong></p>
+    <pre><code>
+✅ OpenCV version: 4.8.1
+✅ MediaPipe version: 0.10.9
+All packages installed successfully!
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <hr>
+
+    <h3>Common Installation Issues</h3>
+
+    <h4>Issue: "pip is not recognized"</h4>
+    <p><strong>Solution:</strong></p>
+    <ol>
+        <li>Make sure virtual environment is activated</li>
+        <li>OR use: <code>python -m pip install opencv-python mediapipe</code></li>
+    </ol>
+
+    <h4>Issue: "Permission denied" (Windows)</h4>
+    <p><strong>Solution:</strong></p>
+    <pre><code>powershell
+# Run PowerShell as Administrator, or
+# Add --user flag
+pip install --user opencv-python mediapipe
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+
+    <h4>Issue: "No module named 'cv2'" after installation</h4>
+    <p><strong>Solution:</strong></p>
+    <ol>
+        <li>Make sure you're using the virtual environment Python</li>
+        <li>In VS Code: Press <code>Ctrl+Shift+P</code> → "Python: Select Interpreter" → Choose <code>.venv</code></li>
+        <li>Restart terminal and activate <code>.venv</code> again</li>
+    </ol>
+
+    <h4>Issue: Installation takes too long</h4>
+    <p><strong>Solution:</strong></p>
+    <ol>
+        <li>Be patient - opencv-python is ~90MB</li>
+        <li>Check your internet connection</li>
+        <li>Try using a faster pip mirror (optional):</li>
+    </ol>
+    <pre><code>bash
+pip install --upgrade pip
+pip install opencv-python mediapipe --no-cache-dir
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+
+    <h4>Issue: Wrong Python version</h4>
+    <p><strong>Solution:</strong></p>
+    <pre><code>bash
+# Check Python version (should be 3.12+)
+python --version
+
+# If wrong version, specify Python 3.12 explicitly
+py -3.12 -m venv .venv
+</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+    <hr>
+
+    <script>
+        function copyCode(btn) {
+            const code = btn.previousElementSibling.textContent;
+            
+            // Try modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(code).then(() => {
+                    showCopiedFeedback(btn);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                    fallbackCopyTextToClipboard(code, btn);
+                });
+            } else {
+                // Fallback for local files or older browsers
+                fallbackCopyTextToClipboard(code, btn);
+            }
+        }
+        
+        function fallbackCopyTextToClipboard(text, btn) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCopiedFeedback(btn);
+                } else {
+                    console.error('Fallback copy failed');
+                }
+            } catch (err) {
+                console.error('Fallback copy failed: ', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        function showCopiedFeedback(btn) {
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = originalText, 2000);
+        }
+    </script>
+</body>
+</html>
